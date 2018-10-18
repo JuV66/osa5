@@ -16,7 +16,7 @@ class AnecdoteList extends React.Component {
     }
 
     toggleVote = (anecdote) => () => {
-        console.log('toggleVote: ',anecdote)
+       // console.log('toggleVote: ',anecdote)
         this.context.store.dispatch(
             actionFor.voteToggling(anecdote)
         )

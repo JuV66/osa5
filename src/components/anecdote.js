@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Anecdote = ({anecdote,handleClick}) => {
-    console.log('Anecdote: ',anecdote)
+    //console.log('Anecdote: ',anecdote)
     return( 
         <div>
             <div>

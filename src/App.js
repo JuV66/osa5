@@ -1,6 +1,6 @@
 import React from 'react';
-import AnecdoteList from './anecdoteList'
-import AnecdoteForm from './anecdoteForm'
+import AnecdoteList from './components/anecdoteList'
+import AnecdoteForm from './components/anecdoteForm'
 
 class App extends React.Component {
 

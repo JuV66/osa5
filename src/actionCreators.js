@@ -4,10 +4,11 @@ const generateId = () => Number((Math.random() * 1000000).toFixed(0))
 const actionFor = {
 
     anecdoteCreation(anecdote) {
+        console.log('actionFor/anecdoteCreation: ', anecdote)
         return {
-            type: 'NEW_ANEKDOTE',
+            type: 'NEW_ANECDOTE',
             data: {
-                anecdote,
+                content: anecdote,
                 id: generateId(),
                 votes : 0
             }

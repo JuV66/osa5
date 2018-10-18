@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
   //const ak = state.filter(ak => )
   
   switch(action.type){
-    case 'NEW_ANEKDOTE':
+    case 'NEW_ANECDOTE':
       //...
       return [...state,action.data]
     case 'TOGGLE_VOTE':

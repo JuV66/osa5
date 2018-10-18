@@ -1,5 +1,5 @@
 import React from 'react';
-import actionFor from './actionCreators'
+import actionFor from '../actionCreators'
 import Anecdote from './anecdote'
 import PropTypes from 'prop-types'
 
@@ -14,7 +14,7 @@ class AnecdoteList extends React.Component {
     componentWillUnmount() {
         this.unsubscribe()
     }
-    
+
     toggleVote = (anecdote) => () => {
         console.log('toggleVote: ',anecdote)
         this.context.store.dispatch(

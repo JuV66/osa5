@@ -8,7 +8,7 @@ describe('anecdoteRenderer', () => {
       type: 'NEW_ANECDOTE',
       data: {
         content: 'sovelluksen tila talletetaan storeen',
-        important: true,
+        votes: 2,
         id: 1
       }
     }
@@ -20,7 +20,7 @@ describe('anecdoteRenderer', () => {
     expect(newState).toContainEqual(action.data)
   })
 
-  it('returns new state with action TOGGLE_VOTE', () => {
+  it.only('returns new state with action TOGGLE_VOTE', () => {
     const state = [
       {
         content: 'sovelluksen tila talletetaan storeen',
@@ -46,10 +46,10 @@ describe('anecdoteRenderer', () => {
     expect(newState.length).toBe(2)
 
     expect(newState).toContainEqual(state[0])
-
+   
     expect(newState).toContainEqual({
       content: 'tilanmuutokset tehdään actioneilla',
-      votes: 2,
+      votes: 3,
       id: 2
     })
   })  

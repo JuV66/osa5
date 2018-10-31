@@ -5,11 +5,13 @@ import { Provider } from 'react-redux'
 import App from './App';
 import anecdoteReducer from './reducers/reducer'
 import noticeReducer from './reducers/NoticeReducer'
+import filterReducer from './reducers/FilterReducer'
 
 
 const reducer = combineReducers({
   anecdotes: anecdoteReducer,
-  notice: noticeReducer
+  notice: noticeReducer,
+  filter: filterReducer
 })
 
 const store = createStore(reducer)

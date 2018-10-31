@@ -2,6 +2,7 @@ import React from 'react';
 import AnecdoteList from './components/anecdoteList'
 import AnecdoteForm from './components/anecdoteForm'
 import Notification from './components/notification'
+import Filter from './components/filter'
 
 class App extends React.Component {
 
@@ -10,6 +11,7 @@ class App extends React.Component {
     return (
       <div>
         <Notification/>
+        <Filter/>
         <AnecdoteList/>
         <AnecdoteForm/>
       </div>
@@ -18,14 +20,3 @@ class App extends React.Component {
 }
 
 export default App
-
-/*
-        <h2>create new</h2>
-        <form>
-          <div><input /></div>
-          <button>create</button> 
-        </form>
-*/
-/*
-<AnecdoteForm store={this.props.store}/>
-*/

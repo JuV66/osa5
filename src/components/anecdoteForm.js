@@ -23,12 +23,13 @@ class AnecdoteForm extends React.Component {
     }
 
     addAnecdote = (event) => {
+        console.log('store ',this.context.store.getState())
+        console.log('event/anecdote: ', event.target.anocdote)
         event.preventDefault()
         this.context.store.dispatch(
             anecdoteCreation(event.target.anecdote.value)
         )
         event.target.anecdote.value = ''
-        this.timeOut=setTimeout(() => this.noticeClear(), 5000)
     }
     render(){
         return(

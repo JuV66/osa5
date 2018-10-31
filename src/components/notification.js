@@ -30,14 +30,14 @@ class Notification extends React.Component {
     }
 
     const noticeToShow = () => {
-      //console.log('this.context: ', this.context)
-      //console.log('store', store)
-      //console.log('notice: ', this.context.store.getState().notice )
-      this.timeOut=setTimeout(() => this.noticeClear(), 5000)
-      //const notice = this.context.store.getState().notice
-      if (this.context.store.getState().notice !== '')
+
+      if (this.context.store.getState().notice !== "")
+      {
+        console.log('set timer')
+        this.timeOut=setTimeout(() => this.noticeClear(), 5000)
         return this.context.store.getState().notice
-      return ''
+      }
+      return ""
     }
 
     return (

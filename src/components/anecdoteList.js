@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 //import actionFor from '../actionCreators'
 import Anecdote from './anecdote'
 import PropTypes from 'prop-types'
@@ -26,8 +26,14 @@ class AnecdoteList extends React.Component {
     render(){
         
         const anecdotesToShow = () => {
-            const {anecdotes, notice} = this.context.store.getState()
-            return anecdotes
+            //console.log('anecdotesToShow/filter: ', this.context.store.getState().filter )
+            
+            const {anecdotes} = this.context.store.getState()
+            //console.log('anecdotesToShow/anecdotes: ',anecdotes)
+            const visibleAnecdotes = 
+                anecdotes.filter(a => a.content.toUpperCase().includes(this.context.store.getState().filter.toUpperCase() ))
+            //console.log('anecdotesToShow/visibleAnecdotes: ',visibleAnecdotes)
+            return visibleAnecdotes
         }
 
         return(

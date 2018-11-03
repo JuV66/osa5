@@ -1,27 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
 import {noticeR} from '../reducers/NoticeReducer'
 
 class Notification extends React.Component {
-  
-  componentDidMount() {
-    const {store} = this.context
-
-    this.unsubscribe = store.subscribe(() =>
-        this.forceUpdate()
-    )
-  }
-  componentWillUnmount() {
-      this.unsubscribe()
-  }
 
   noticeClear() {
-    this.context.store.dispatch(
-      noticeR()
-    )
+    this.props.noticeR()
     clearTimeout(this.timeOut)
   }
-
   render() {
     const style = {
       border: 'solid',
@@ -31,11 +18,14 @@ class Notification extends React.Component {
 
     const noticeToShow = () => {
 
-      if (this.context.store.getState().notice !== "")
+      if (this.props.notice !== "")
       {
-        console.log('set timer')
+        console.log('set timer: ',this.timeOut)
+        if (this.timeOut !== undefined) {
+          clearTimeout(this.timeOut)
+        }
         this.timeOut=setTimeout(() => this.noticeClear(), 5000)
-        return this.context.store.getState().notice
+        return this.props.notice
       }
       return ""
     }
@@ -48,8 +38,14 @@ class Notification extends React.Component {
   }
 }
 
-Notification.contextTypes = {
-  store: PropTypes.object
+const mapStateToProps = (state) => {
+  return {
+    notice: state.notice
+  }
 }
 
-export default Notification
+//export default Notification
+export default connect(
+  mapStateToProps,
+  {noticeR}
+)(Notification)
